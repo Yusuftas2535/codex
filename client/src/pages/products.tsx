@@ -51,7 +51,7 @@ export default function Products() {
     name: "",
     description: "",
     price: "",
-    categoryId: "",
+    categoryId: "no-category",
     imageUrl: "",
     isAvailable: true,
     sortOrder: 0,
@@ -95,7 +95,7 @@ export default function Products() {
     mutationFn: async (data: typeof formData) => {
       await apiRequest("POST", "/api/products", {
         ...data,
-        categoryId: data.categoryId ? parseInt(data.categoryId) : null,
+        categoryId: data.categoryId && data.categoryId !== "no-category" ? parseInt(data.categoryId) : null,
         price: parseFloat(data.price).toFixed(2),
       });
     },
@@ -104,8 +104,8 @@ export default function Products() {
       setIsCreateModalOpen(false);
       resetForm();
       toast({
-        title: "Success",
-        description: "Product created successfully!",
+        title: "Başarılı",
+        description: "Ürün başarıyla eklendi!",
       });
     },
     onError: (error: any) => {
@@ -123,14 +123,14 @@ export default function Products() {
       
       if (error.message.includes('PRODUCT_LIMIT_REACHED')) {
         toast({
-          title: "Product Limit Reached",
-          description: "Upgrade to Elite plan to add more products.",
+          title: "Ürün Limiti Doldu",
+          description: "Daha fazla ürün eklemek için Elite üyeliğe geçin.",
           variant: "destructive",
         });
       } else {
         toast({
-          title: "Error",
-          description: "Failed to create product",
+          title: "Hata",
+          description: "Ürün eklenemedi",
           variant: "destructive",
         });
       }
@@ -142,7 +142,7 @@ export default function Products() {
     mutationFn: async (data: typeof formData & { id: number }) => {
       await apiRequest("PUT", `/api/products/${data.id}`, {
         ...data,
-        categoryId: data.categoryId ? parseInt(data.categoryId) : null,
+        categoryId: data.categoryId && data.categoryId !== "no-category" ? parseInt(data.categoryId) : null,
         price: parseFloat(data.price).toFixed(2),
       });
     },
@@ -152,8 +152,8 @@ export default function Products() {
       setEditingProduct(null);
       resetForm();
       toast({
-        title: "Success",
-        description: "Product updated successfully!",
+        title: "Başarılı",
+        description: "Ürün başarıyla güncellendi!",
       });
     },
     onError: (error) => {
@@ -169,8 +169,8 @@ export default function Products() {
         return;
       }
       toast({
-        title: "Error",
-        description: "Failed to update product",
+        title: "Hata",
+        description: "Ürün güncellenemedi",
         variant: "destructive",
       });
     },
@@ -184,8 +184,8 @@ export default function Products() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/products"] });
       toast({
-        title: "Success",
-        description: "Product deleted successfully!",
+        title: "Başarılı",
+        description: "Ürün başarıyla silindi!",
       });
     },
     onError: (error) => {
@@ -201,8 +201,8 @@ export default function Products() {
         return;
       }
       toast({
-        title: "Error",
-        description: "Failed to delete product",
+        title: "Hata",
+        description: "Ürün silinemedi",
         variant: "destructive",
       });
     },
@@ -213,7 +213,7 @@ export default function Products() {
       name: "",
       description: "",
       price: "",
-      categoryId: "",
+      categoryId: "no-category",
       imageUrl: "",
       isAvailable: true,
       sortOrder: 0,
@@ -226,7 +226,7 @@ export default function Products() {
       name: product.name,
       description: product.description || "",
       price: product.price,
-      categoryId: product.categoryId?.toString() || "",
+      categoryId: product.categoryId?.toString() || "no-category",
       imageUrl: product.imageUrl || "",
       isAvailable: product.isAvailable,
       sortOrder: product.sortOrder,
@@ -239,8 +239,8 @@ export default function Products() {
     
     if (!formData.name.trim() || !formData.price.trim()) {
       toast({
-        title: "Error",
-        description: "Name and price are required",
+        title: "Hata",
+        description: "İsim ve fiyat zorunludur",
         variant: "destructive",
       });
       return;
@@ -354,7 +354,7 @@ export default function Products() {
                       <SelectValue placeholder="Kategori seçin" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">Kategori Yok</SelectItem>
+                      <SelectItem value="no-category">Kategori Yok</SelectItem>
                       {categories.map(category => (
                         <SelectItem key={category.id} value={category.id.toString()}>
                           {category.name}

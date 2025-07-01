@@ -225,7 +225,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-gray-50">
       <NavigationHeader 
         user={{ name: restaurant?.name || "User" }} 
-        restaurant={restaurant} 
+        restaurant={restaurant || null} 
         onUpgrade={() => setShowUpgradeModal(true)} 
       />
 
@@ -237,9 +237,13 @@ export default function Dashboard() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-gray-600">Toplam Ürün</p>
-                  <p className="text-2xl font-bold text-neutral-dark">
-                    {statsLoading ? <Skeleton className="h-8 w-8" /> : stats?.totalProducts || 0}
-                  </p>
+                  {statsLoading ? (
+                    <Skeleton className="h-8 w-16" />
+                  ) : (
+                    <p className="text-2xl font-bold text-neutral-dark">
+                      {stats?.totalProducts || 0}
+                    </p>
+                  )}
                   {restaurant?.plan === 'free' && (
                     <p className="text-xs text-gray-500 mt-1">/ {restaurant.maxProducts} limit</p>
                   )}
@@ -256,9 +260,13 @@ export default function Dashboard() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-gray-600">Aktif Masalar</p>
-                  <p className="text-2xl font-bold text-neutral-dark">
-                    {statsLoading ? <Skeleton className="h-8 w-8" /> : stats?.activeTables || 0}
-                  </p>
+                  {statsLoading ? (
+                    <Skeleton className="h-8 w-16" />
+                  ) : (
+                    <p className="text-2xl font-bold text-neutral-dark">
+                      {stats?.activeTables || 0}
+                    </p>
+                  )}
                 </div>
                 <div className="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center">
                   <Users className="text-success" />
@@ -272,9 +280,13 @@ export default function Dashboard() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-gray-600">Bugünkü Siparişler</p>
-                  <p className="text-2xl font-bold text-neutral-dark">
-                    {statsLoading ? <Skeleton className="h-8 w-8" /> : stats?.todayOrders || 0}
-                  </p>
+                  {statsLoading ? (
+                    <Skeleton className="h-8 w-16" />
+                  ) : (
+                    <p className="text-2xl font-bold text-neutral-dark">
+                      {stats?.todayOrders || 0}
+                    </p>
+                  )}
                 </div>
                 <div className="w-12 h-12 bg-amber-50 rounded-lg flex items-center justify-center">
                   <ShoppingCart className="text-secondary" />
@@ -288,9 +300,13 @@ export default function Dashboard() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-gray-600">Garson Çağrıları</p>
-                  <p className="text-2xl font-bold text-neutral-dark">
-                    {statsLoading ? <Skeleton className="h-8 w-8" /> : stats?.pendingWaiterCalls || 0}
-                  </p>
+                  {statsLoading ? (
+                    <Skeleton className="h-8 w-16" />
+                  ) : (
+                    <p className="text-2xl font-bold text-neutral-dark">
+                      {stats?.pendingWaiterCalls || 0}
+                    </p>
+                  )}
                 </div>
                 <div className="w-12 h-12 bg-purple-50 rounded-lg flex items-center justify-center">
                   <Bell className="text-purple-600" />

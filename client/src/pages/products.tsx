@@ -15,6 +15,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Switch } from "@/components/ui/switch";
+import ImageUpload from "@/components/image-upload";
 import { Plus, Edit, Trash2, Image, Crown } from "lucide-react";
 
 interface Product {
@@ -364,16 +365,11 @@ export default function Products() {
                   </Select>
                 </div>
 
-                <div>
-                  <Label htmlFor="imageUrl">Görsel URL</Label>
-                  <Input
-                    id="imageUrl"
-                    type="url"
-                    value={formData.imageUrl}
-                    onChange={(e) => setFormData(prev => ({ ...prev, imageUrl: e.target.value }))}
-                    placeholder="https://example.com/image.jpg"
-                  />
-                </div>
+                <ImageUpload
+                  value={formData.imageUrl}
+                  onChange={(url) => setFormData(prev => ({ ...prev, imageUrl: url }))}
+                  label="Ürün Görseli"
+                />
 
                 <div className="flex items-center space-x-2">
                   <Switch

@@ -1,0 +1,80 @@
+Yeni Yol Haritası – NFC Menü QR Pro Sistemi
+1. Üyelik & Abonelik Planları
+Normal Üyelik (Ücretsiz):
+
+Max 10 ürün ekleyebilir
+
+Bazı özellikler (örn. garson çağırma, sipariş toplama) pasif
+
+“Planı Yükselt” butonu hep görünür
+
+Elite Üyelik (Premium):
+
+Sınırsız ürün/kategori ekler
+
+Tüm özellikler açık (garson çağırma, sipariş, pos ile çağırma vs)
+
+Kendi renk, logo özelleştirmesi yapılabilir
+
+Premium rozet/görsel
+
+Planlar arası geçiş: Kullanıcı “Planı Yükselt” butonuyla ödeme sayfasına gider, ödeme sonrası özellikler aktif olur
+
+2. Ödeme Sistemi (Abonelik)
+PayTR veya iyzico ile online kredi kartı ödeme (Türkiye için ideal)
+
+Otomatik plan yükseltme (ödeme alınca elite’ye geçiş)
+
+Admin panelinden manuel plan değişikliği de mümkün (bazen destek gerekir diye)
+
+3. Restoran Sahibi Paneli
+Kategori & ürün yönetimi (ekle, sil, güncelle)
+
+Siparişler / garson çağrıları / pos çağrıları geçmişi
+
+Özellik aç/kapa anahtarı (garson çağırma, pos, sipariş, menüde kategori vs)
+
+QR kodum (indir ve önizle)
+
+“Planım” ve “Planı Yükselt” bölümü
+
+4. Müşteri (Ziyaretçi) Ekranı
+QR ile açıldığında, kategorili & ürünlü menü
+
+Sağ altta modern “Garson Çağır” butonu (popup ile seçenekler)
+
+Sipariş verme seçeneği (seç, topla, gönder)
+
+Restorana özel renk, logo ve premium görünüm desteği
+
+5. WordPress Admin Paneli (Süper Admin)
+Tüm restoranlar, kullanıcılar, üyelik tipi, abonelik durumu
+
+Kullanıcıya el ile plan tanımlama, üyelik iptal/aktif etme
+
+Kullanıcı işlemleri geçmişi (isteğe bağlı)
+
+Sipariş & çağrı logları (isteğe bağlı)
+
+Detaylı filtreleme ve hızlı arama
+
+Gerektiğinde yeni planlar ekleme (future-proof yapıda)
+
+6. Diğer Olmazsa Olmazlar
+Mobil-first, modern tasarım (köşeler, gölge, animasyon, sade ama etkili)
+
+Bildirim sistemi (sipariş geldi, çağrı yapıldı, plan yenilendi vs)
+
+Tüm işlemlerde görsel ve kullanıcı deneyimine çok dikkat
+
+Kullanıcılar isterlerse hesaplarını silebilsin
+
+Ekstra Detaylar (Senin Onayına Sunuyorum):
+Restoranlar için açılış sayfası “demo menü” (kayıt olmadan test)
+
+Otomatik mail bildirimleri (kayıt, ödeme, çağrı vs)
+
+QR’dan giren müşteri için arayüzde animasyonlu geçişler/efektler
+
+Admin için istatistik ekranı (toplam kullanıcı, toplam çağrı vs)
+
